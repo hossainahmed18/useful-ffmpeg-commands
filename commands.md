@@ -9,7 +9,7 @@ ffmpeg -re -stream_loop -1 -i dolphin.mp4 \
 
 ```
 
-N.B. if application name is not there, then user Application instance twice.(like: rtmp://ip:port/{Application instance}/{Application instance). use localtime to send your ```timezone``` time
+N.B. if application name is not there, then user Application instance twice.(like: rtmp://ip:port/{Application instance}/{Application instance). use ```localtime``` to send your  timezone time
 
 2. Open a SRT stream in listener mode looping an mp4 file and play
 ```
