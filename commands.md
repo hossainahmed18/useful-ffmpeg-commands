@@ -4,7 +4,7 @@
 ffmpeg -re -stream_loop -1 -i dolphin.mp4 \
 -vf "scale=1920:1080,drawtext=text='%{gmtime}': fontcolor=white: fontsize=48: x=w-tw-10: y=10" -r 30 \
 -c:v libx264 -preset veryfast -b:v 5000k -maxrate 5000k -bufsize 10000k \
--c:a aac -b:a 128k -ar 44100 -f flv rtmp://ip:port/{Application Name}/{Application instance}\  
+-c:a aac -b:a 128k -ar 44100 -f flv rtmp://ip:port/{Application Name}/{Application instance} \  
 -loglevel debug
 
 ```

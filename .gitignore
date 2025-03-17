@@ -3,3 +3,4 @@
 *.ts
 .mp3
 practice.md
+.DS_Store
