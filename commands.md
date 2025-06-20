@@ -69,3 +69,18 @@ ffmpeg -i "http://example.com/your_hls_stream.m3u8" -q:a 0 -map a output.mp3
 ```
 ffmpeg -i http://example.com/your_hls_stream.m3u8 -acodec copy -vcodec copy out.mp4
 ```
+
+8. create live stream as live encoder
+
+```
+ffmpeg -re -i dolphin.mp4 \
+  -vf "scale=1920:1080,drawtext=text='%{gmtime}': fontcolor=white: fontsize=48: x=w-tw-10: y=10" \
+  -c:v libx264 -preset veryfast -b:v 2000k \
+  -c:a aac -b:a 128k \
+  -f hls \
+  -hls_time 4 \
+  -hls_list_size 5 \
+  -hls_flags delete_segments+append_list \
+  -hls_segment_filename "output/segment_%03d.ts" \
+  output/playlist.m3u8
+```
