@@ -84,3 +84,8 @@ ffmpeg -re -i dolphin.mp4 \
   -hls_segment_filename "output/segment_%03d.ts" \
   output/playlist.m3u8
 ```
+
+8. loop over a mp4 for create big file size
+```
+ffmpeg -stream_loop 7 -i 100.mp4 -c copy 700.mp4
+```
