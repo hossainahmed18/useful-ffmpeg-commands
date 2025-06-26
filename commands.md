@@ -89,3 +89,10 @@ ffmpeg -re -i dolphin.mp4 \
 ```
 ffmpeg -stream_loop 7 -i 100.mp4 -c copy 700.mp4
 ```
+
+9. copy audio from mp3 and paster it destination mp4. Audio will be repeated for the whole video length
+```
+ffmpeg -stream_loop -1 -i source.mp3 -i 713.mp4 \
+-shortest -map 0:a:0 -map 1:v:0 -c:v copy -c:a aac -b:a 192k output.mp4
+
+```
