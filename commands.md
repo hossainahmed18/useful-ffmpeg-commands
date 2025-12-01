@@ -96,3 +96,19 @@ ffmpeg -stream_loop -1 -i source.mp3 -i 713.mp4 \
 -shortest -map 0:a:0 -map 1:v:0 -c:v copy -c:a aac -b:a 192k output.mp4
 
 ```
+
+10. Concat multiple mp4 into a single just copying video+audio
+
+```
+
+ffmpeg \
+  -i 1.mov \
+  -i 2.mov \
+  -i 3.mov \
+  -i 4.mov \
+  -i 5.mov \
+  -filter_complex "[0:v][0:a][1:v][1:a][2:v][2:a][3:v][3:a][4:v][4:a]concat=n=5:v=1:a=1[v][a]" \
+  -map "[v]" -map "[a]" \
+  output.mp4
+  
+  ```
