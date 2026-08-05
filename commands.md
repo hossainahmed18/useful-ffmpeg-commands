@@ -112,3 +112,18 @@ ffmpeg \
   output.mp4
 
 ```
+
+11. convert mov to mp4 by rencode to h264 + acc
+
+```
+ffmpeg -i input.mov -c:v libx264 -c:a aac -movflags +faststart output.mp4
+
+```
+
+12. send srt streams to medialive srt listener inputs
+
+```
+ffmpeg -re -stream_loop -1 -i dolphin.mp4 \
+  -c copy -f mpegts \
+  "srt://gg.gg.gg.gg:5050?mode=caller&passphrase=your_passphase&latency=latency"
+```
